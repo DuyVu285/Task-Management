@@ -11,13 +11,12 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use("/api/tasks", taskRoutes);
 
 //Routes
 app.get("/", (req, res) => {
   res.send("Home page");
 });
-
-app.use(taskRoutes);
 
 const PORT = process.env.PORT || 5000;
 
